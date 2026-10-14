@@ -1,0 +1,221 @@
+{
+  "locations": [
+    {
+      "id": "loc-main-st",
+      "name": "Beacon Ridge Plumbing - Main Street",
+      "city": "Ridgewood"
+    },
+    {
+      "id": "loc-riverside",
+      "name": "Beacon Ridge Plumbing - Riverside",
+      "city": "Ridgewood"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-5a1",
+      "locationId": "loc-main-st",
+      "reviewerName": "Dana Whitfield",
+      "stars": 5,
+      "comment": "Tech arrived on time, found the leak under the sink fast, and left the kitchen cleaner than he found it. Highly recommend.",
+      "createdAt": "2026-10-14T00:04:53.295Z",
+      "updatedAt": "2026-10-14T00:04:53.296Z",
+      "status": "approved",
+      "replyText": "Hi Dana, thank you for the 5-star review! We're glad the team could find that leak fast and leave things spotless. We appreciate your business and look forward to helping you again.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-14T00:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-14T00:04:53.296Z",
+          "by": "system",
+          "text": "Hi Dana, thank you for the 5-star review! ..."
+        },
+        {
+          "type": "approved",
+          "at": "2026-10-14T00:04:53.296Z",
+          "by": "owner",
+          "text": "Hi Dana, thank you for the 5-star review! We're glad the team could find that leak fast and leave things spotless. We appreciate your business and look forward to helping you again."
+        }
+      ]
+    },
+    {
+      "id": "rev-4b2",
+      "locationId": "loc-main-st",
+      "reviewerName": "Marcus Bell",
+      "stars": 4,
+      "comment": "Good work replacing our water heater. Took a day longer than quoted but the crew was professional.",
+      "createdAt": "2026-10-13T12:04:53.296Z",
+      "updatedAt": "2026-10-13T12:04:53.296Z",
+      "status": "approved",
+      "replyText": "Hi Marcus, thank you for the 4-star review! Glad the new water heater is in and the crew took good care of you. We appreciate your business.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-13T12:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-13T12:04:53.296Z",
+          "by": "system",
+          "text": "Hi Marcus, thank you for the 4-star review! ..."
+        },
+        {
+          "type": "approved",
+          "at": "2026-10-13T12:04:53.296Z",
+          "by": "owner",
+          "text": "Hi Marcus, thank you for the 4-star review! Glad the new water heater is in and the crew took good care of you. We appreciate your business."
+        }
+      ]
+    },
+    {
+      "id": "rev-5c3",
+      "locationId": "loc-riverside",
+      "reviewerName": "Priya Natarajan",
+      "stars": 5,
+      "comment": "Emergency pipe burst at 10pm and they were here by 11. Lifesavers. Fair pricing too.",
+      "createdAt": "2026-10-12T12:04:53.296Z",
+      "updatedAt": "2026-10-12T12:04:53.296Z",
+      "status": "draft",
+      "draftText": "Hi Priya, thank you for the 5-star review! We're glad the team could get there fast for that emergency. We appreciate your business and look forward to helping you again.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-12T12:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-12T12:04:53.296Z",
+          "by": "system",
+          "text": "Hi Priya, ..."
+        }
+      ]
+    },
+    {
+      "id": "rev-3d4",
+      "locationId": "loc-riverside",
+      "reviewerName": "Sam Okafor",
+      "stars": 3,
+      "comment": "Drain cleaning worked, but the tech left muddy footprints on my carpet and I had to ask for a shoe cover.",
+      "createdAt": "2026-10-11T12:04:53.296Z",
+      "updatedAt": "2026-10-11T12:04:53.296Z",
+      "status": "draft",
+      "draftText": "Hi Sam, thank you for your honest review. We're sorry your experience was not what it should have been. Please call the owner directly at the Beacon Ridge Plumbing - Riverside office (Ridgewood) so we can look into this personally. Your feedback helps us improve.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-11T12:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-11T12:04:53.296Z",
+          "by": "system",
+          "text": "Hi Sam, ..."
+        }
+      ]
+    },
+    {
+      "id": "rev-2e5",
+      "locationId": "loc-main-st",
+      "reviewerName": "Karen Delacroix",
+      "stars": 2,
+      "comment": "Quoted one price over the phone, charged 40 percent more on site. Felt taken advantage of.",
+      "createdAt": "2026-10-10T12:04:53.296Z",
+      "updatedAt": "2026-10-10T12:04:53.296Z",
+      "status": "draft",
+      "draftText": "Hi Karen, thank you for your honest review. We're sorry your experience was not what it should have been. Please call the owner directly at the Beacon Ridge Plumbing - Main Street office (Ridgewood) so we can look into this personally. Your feedback helps us improve.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-10T12:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-10T12:04:53.296Z",
+          "by": "system",
+          "text": "Hi Karen, ..."
+        }
+      ]
+    },
+    {
+      "id": "rev-1f6",
+      "locationId": "loc-main-st",
+      "reviewerName": "Anonymous",
+      "stars": 1,
+      "comment": "Nobody showed up during the appointment window and nobody called. Complete waste of a day off.",
+      "createdAt": "2026-10-09T12:04:53.296Z",
+      "updatedAt": "2026-10-09T12:04:53.296Z",
+      "status": "pending",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-09T12:04:53.296Z",
+          "by": "system"
+        }
+      ]
+    },
+    {
+      "id": "rev-1g7",
+      "locationId": "loc-riverside",
+      "reviewerName": "Tom Rivas",
+      "stars": 1,
+      "comment": "Water heater install leaked the next day and flooded my garage. Still waiting on a callback.",
+      "createdAt": "2026-10-05T12:04:53.296Z",
+      "updatedAt": "2026-10-05T12:04:53.296Z",
+      "status": "draft",
+      "draftText": "Hi Tom, thank you for your honest review. We're sorry your experience was not what it should have been. Please call the owner directly at the Beacon Ridge Plumbing - Riverside office (Ridgewood) so we can look into this personally. Your feedback helps us improve.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-05T12:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-05T12:04:53.296Z",
+          "by": "system",
+          "text": "Hi Tom, ..."
+        }
+      ]
+    },
+    {
+      "id": "rev-5h8",
+      "locationId": "loc-riverside",
+      "reviewerName": "Lisa Tran",
+      "stars": 5,
+      "comment": "Second time using them. Consistent, tidy, honest. The only plumber I call now.",
+      "createdAt": "2026-10-08T12:04:53.296Z",
+      "updatedAt": "2026-10-08T12:04:53.296Z",
+      "status": "approved",
+      "replyText": "Hi Lisa, thank you for the 5-star review! It means a lot to the Beacon Ridge Plumbing - Riverside team that you keep calling us back. We appreciate your business and look forward to helping you again.",
+      "thread": [
+        {
+          "type": "received",
+          "at": "2026-10-08T12:04:53.296Z",
+          "by": "system"
+        },
+        {
+          "type": "draft_generated",
+          "at": "2026-10-08T12:04:53.296Z",
+          "by": "system",
+          "text": "Hi Lisa, thank you for the 5-star review! ..."
+        },
+        {
+          "type": "approved",
+          "at": "2026-10-08T12:04:53.296Z",
+          "by": "owner",
+          "text": "Hi Lisa, thank you for the 5-star review! It means a lot to the Beacon Ridge Plumbing - Riverside team that you keep calling us back. We appreciate your business and look forward to helping you again."
+        }
+      ]
+    }
+  ],
+  "alertLog": [],
+  "digestLog": []
+}

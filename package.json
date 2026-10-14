@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "next": "15.5.9",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "description": "ReviewGuard MVP v1 (DEMO MODE) \u2014 Google review triage for trade contractors",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.2",
+    "vitest": "^3.2.4"
+  },
+  "name": "reviewguard",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "seed": "node scripts/write-seed.js",
+    "start": "next start",
+    "test": "vitest run"
+  },
+  "version": "0.1.0",
+  "type": "module"
+}

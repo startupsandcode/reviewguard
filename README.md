@@ -1,42 +1,81 @@
-# ReviewGuard — demo-mode MVP v1
+# ReviewGuard
 
-Google review triage for trade contractors: instant alerts, AI-drafted replies, owner approval before anything posts.
+ReviewGuard is a demo application for triaging Google Business Profile reviews for local service businesses. It shows a review inbox, suggested replies, an owner approval flow, and a weekly performance digest.
 
-**Status: DEMO MODE.** Everything runs on mock data in a local JSON store (`data/reviews.json`). There is no Google connection, no emails are sent, no SMS is sent, and no replies are posted anywhere.
+## Current status
 
-## The full loop (mock data)
+This repository contains a local prototype. It uses synthetic review data and a JSON file at `data/reviews.json`. Google Business Profile is not connected. Email and SMS alerts are logged locally, and replies are not posted to Google. Do not use it with real customer data or deploy it as a production service.
 
-1. A mock review arrives via the demo "Inject demo review" button (dev-only `POST /api/simulate`; 403 unless `REVIEWGUARD_DEMO=true`).
-2. An instant alert is logged. Email via Resend is **stubbed to console.log only** (`lib/alerts.ts`); nothing sends.
-3. An AI draft reply is generated from deterministic templates keyed on star tier (`lib/drafts.ts`): gracious for 4-5 stars, de-escalating and specific for 1-3 stars, never defensive, never fabricating job facts, never disclosing PII, never promising compensation. The **LLM integration seam** is documented in `lib/drafts.ts`: implement `LlmDraftProvider` against your provider's chat API and pass it to `generateReplyDraft()`.
-4. The owner approves, edits, or discards in the dashboard (`/dashboard`, `/reviews/[id]`). Nothing posts without approval (approval-only MVP). The GBP reply POST is stubbed in `postReplyToGbp()`; reply bursts are paced at 10 approvals/min per location (see comment citing Google's per-location edit cap).
-5. Weekly digest at `/digest` and `GET/POST /api/digest`: review volume, average rating trend, reply rate per location. Email delivery stubbed.
+## How it works
 
-## Compliance invariant (unit-tested)
+1. The dashboard loads sample reviews from the local JSON store.
+2. When demo mode is enabled, a simulated review can be added through `POST /api/simulate`.
+3. ReviewGuard creates a suggested reply using deterministic templates selected by rating. The templates avoid inventing job details, disclosing personal information, or promising compensation.
+4. An owner can review, edit, approve, or discard the draft. Approval is recorded in the local review thread; it does not publish a reply.
+5. The digest summarizes review volume, average rating, and reply rate. Its email delivery is also a local log only.
 
-`lib/compliance.ts` — every customer receives the **identical** feedback link (private feedback + public review links with equal prominence). No sentiment or rating conditional routing anywhere in the codebase, per the April 2026 Google review-gating policy. `tests/compliance.test.ts` asserts link equality across customers × star tiers × 100 synthetic customers.
+The app is built with Next.js, React, and TypeScript. Key code is organized as follows:
 
-## Data store
+- `app/`: dashboard, review detail pages, digest page, and API routes
+- `lib/drafts.ts`: deterministic reply templates and the documented interface for a future language-model provider
+- `lib/compliance.ts`: shared customer feedback links and review link handling
+- `lib/store.ts`: JSON-file persistence for the demo
+- `data/seed.js`: synthetic sample locations and reviews
+- `tests/`: lifecycle, ingestion, digest, and feedback-link checks
 
-JSON file at `data/reviews.json`. Idempotent upserts keyed on review id. **Production needs Postgres** (reviews, threads, locations, alert/digest audit) plus real GBP OAuth/PubSub before launch.
+## Run locally
 
-## Run
+Requirements: Node.js and npm.
 
 ```bash
 npm install
-npm run seed      # write fresh mock data to data/reviews.json
-npm run dev       # dev server (REVIEWGUARD_DEMO=true enables the inject button)
-npm run build && npm start   # production build + serve
-npm test          # vitest: lifecycle, no-gating, ingest flow, digest
+npm run seed
+npm run dev
 ```
 
-Inject a review in the built app: start with `REVIEWGUARD_DEMO=true npm start` (demo flag only; never in real production).
+The app is available at http://localhost:3000. Demo review injection is disabled by default. To enable it during local development:
 
-## Deferred gates for production (need John's org identity — do NOT attempt without him)
+**macOS / Linux / Git Bash**
 
-1. **GBP API access-request form** (~14-day review per Cloud project; requires valid business email, live website, legitimate business reason).
-2. **OAuth verification** for the `business.manage` sensitive scope (no read-only variant; brand verification, privacy policy/ToS, demo video; weeks, not days).
+```bash
+REVIEWGUARD_DEMO=true npm run dev
+```
 
-## Spend
+**PowerShell**
 
-$0. No purchases, no paid APIs, no credentialed calls, no accounts created.
+```powershell
+$env:REVIEWGUARD_DEMO = "true"
+npm run dev
+```
+
+The demo flag enables mock data injection only. Keep it off in any deployed environment.
+
+## Checks
+
+```bash
+npm test
+npm run build
+```
+
+## Routes
+
+- `/`: project overview
+- `/dashboard`: review inbox
+- `/reviews/[id]`: review details and draft actions
+- `/digest`: weekly digest
+- `/api/reviews`: list and ingest reviews
+- `/api/reviews/[id]`: retrieve a review
+- `/api/reviews/[id]/draft`: create a suggested reply
+- `/api/reviews/[id]/edit`: edit a draft
+- `/api/reviews/[id]/approve`: record owner approval
+- `/api/reviews/[id]/discard`: discard a draft
+- `/api/simulate`: add a mock review when demo mode is enabled
+- `/api/digest`: read or generate the digest
+
+## Before using real data
+
+A production version would need authenticated user accounts, per-business data isolation, durable database storage, verified Google Business Profile access, and real alert delivery. Every outbound reply should remain behind an explicit owner approval. ReviewGuard's feedback links must be presented consistently to all customers; do not route people based on sentiment or rating.
+
+## License
+
+No license file is currently included. The repository is public source only if its owner changes visibility; reuse rights still need to be specified.
